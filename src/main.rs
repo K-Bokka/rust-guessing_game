@@ -17,6 +17,19 @@ fn main() {
         io::stdin().read_line(&mut guess)
             .expect("Failed to read line");
 
+        match guess.trim() {
+            "quit" => {
+                println!("Good Bye!");
+                break;
+            },
+            "surrender" => {
+                println!("You lose.");
+                break;
+            },
+            _ => {}
+
+        }
+
         let guess: u32 = match guess.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
